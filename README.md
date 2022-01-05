@@ -74,3 +74,48 @@ Agora dentro do aquivo `package.json` vamos criar uma `"devDependencies"` recort
     <img src="./img/img005.png" />
 </h1>
 
+### 1.3 Exportando assets do Figma
+
+Link para acessa figma:
+https://www.figma.com/file/0xmu9mj2TJYoIOubBFWsk5/dtmoney-Ignite-(Copy)?node-id=0%3A1
+
+Caso não consiga baixar pelo figma segui o link das logos.
+E link Assets:
+https://xesque.rocketseat.dev/platform/1615808314498-attachment.zip
+
+Vamos exportar as `layers` que significa camadas: 
+1 - Logo.
+
+<h1 align="center">
+    <img src="./img/img006.png" />
+</h1>
+
+Vamos criar uma pasta dentro `src` com o nome de `assets` e colocar logos.
+Esse vamos reomea para `logo.svg`.
+
+2 - Vamos exposta so a bolinha:
+no formado png
+E vou chamar de `favicon.png`
+Na pasta index.html
+
+<h1 align="center">
+    <img src="./img/img007.png" />
+</h1>
+
+3 - Agora os vetores
+no formado svg
+
+<h1 align="center">
+    <img src="./img/img008.png" />
+</h1>
+
+4 - o vetor de fecha
+
+Ficando assim:
+
+<h1 align="center">
+    <img src="./img/img009.png" />
+</h1>
+
+E vamos anotar as cores do figma para passar no scc:
+
