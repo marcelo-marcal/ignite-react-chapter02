@@ -109,13 +109,68 @@ no formado svg
     <img src="./img/img008.png" />
 </h1>
 
-4 - o vetor de fecha
+4 - O vetor de fecha
 
-Ficando assim:
+E ficando assim os vetores renomeados:
 
 <h1 align="center">
     <img src="./img/img009.png" />
 </h1>
 
 E vamos anotar as cores do figma para passar no scc:
+
+### Instalando Styled Components
+
+Vamos inicia instalando uma das bibliotecas que e Styled Components
+
+`yarn add styled-components`
+
+Vamos no arquivo `App.tsx` entender nossa estilização.
+
+Vamos entender com esse Exemplo:
+E vamos cria um `App.css` e vamos estilizar uma propriedade `.title`
+
+<h1 align="center">
+    <img src="./img/img010.png" />
+</h1>
+
+E vamos em `App.tsx` importamos o `App.css`.
+e vamos colocar um `className` dentro do `h1` assim `<h1 className="title">Hello World</h1>`.
+
+<h1 align="center">
+    <img src="./img/img011.png" />
+</h1>
+
+E vamos rodar a aplicação com:
+`yarn start`
+
+localhost:3000
+<h1 align="center">
+    <img src="./img/img012.png" />
+</h1>
+
+Agora vamos fazer diferente:
+Vamos apaga o arquivo `App.css` e dentro do arquivo `App.tsx` vamos importa:
+`import styled from 'styled-components';` e ele ira apresenta um erro:
+
+<h1 align="center">
+    <img src="./img/img013.png" />
+</h1>
+
+E sempre que aparecer esse tipo de error que sugere instala um pacote adicional, nos instalamos como dependencia de desenvolvimento.
+`yarn add @types/styled-components -D`
+
+E para estiliza o mesmo titulo usando Styled Components.
+Vamos criar um componente estilizado, como uma costante variavel chamada por exemplo `Title` ficando assim:
+
+`const Title = styled.h1`` `
+Instala a extenção do VC.Code `vscode-styled-components`.
+
+E ao em vez de colocar `h1` vamos colocar um componete `title`
+
+<h1 align="center">
+    <img src="./img/img014.png" />
+</h1>
+
+Tendo a vantagem do css ficar proximo e não atralha os outros css de componetes.
 
