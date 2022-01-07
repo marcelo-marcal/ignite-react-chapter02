@@ -174,3 +174,65 @@ E ao em vez de colocar `h1` vamos colocar um componete `title`
 
 Tendo a vantagem do css ficar proximo e não atralha os outros css de componetes.
 
+### Criando estilos globais
+
+Como usar Styled Components, para criar umas estilizações globais para a aplicação.
+Vamos começa remomvendo tudo que tem do Styled Components dentro do `App.tsx`.
+
+```
+import styled from 'styled-components';
+
+const Title = styled.h1`
+  font-size: 64px;
+  color: #8257e6;
+`
+```
+Vamos deixa so o h1 com Hello World `<h1>Hello World</h1>` dentro da div.
+
+E dentro da pasta `public` no arquivo `index.html` colocar nosso favicon.
+
+<h1 align="center">
+    <img src="./img/img015.png" />
+</h1>
+
+E vamos rodar a aplicação com:
+`yarn start`
+
+Agora para fazer os estilos globais vamos na pasta `src` vamos criar uma pasta `styles` e dentro dela um arquivo `global.ts`.
+Vamos criar um a importação: `import { createGlobalStyle } from 'styled-components';`
+E criar uma variavel: `export const GlobalStyle = createGlobalStyle`` ` com spas no final para colocamos os codigo css.
+
+Seve para deixa a fonte com mais qualidade nos Browser `-webkit-font-smoothing: antialiased;`.
+
+<h1 align="center">
+    <img src="./img/img016.png" />
+</h1>
+
+Agora vamos importa o arquivo para ver como ele esta:
+
+No arquivo `App.tsx` que e o arquivo principal da aplicação vamos colocar o `<GlobalStyle/>` em qualque lugar e depois arrumamos.
+
+E vamos continual no arquivo `global.ts`.
+E configura o tamanho de fonte da aplicação. E por pagrão o font-size: 16px e um padrão e fuciona muito bem para Desktop.
+
+Eu vou falar quando meu usuario estive com uma tela ate 1080px de largura, eu vou diminuir o font-size eu vou deixa ele em 93.75%.
+Isso para quando a aplicação for usada em dispositivos menores.
+
+<h1 align="center">
+    <img src="./img/img017.png" />
+</h1>
+
+Vamos continuar estilzando.
+Um `cursor: pointer;` dentro de button
+e vamos dizer a ele: Que tudo que estiver desabilitado em nossa aplicação [disabled] vamos colar um `opacity:0.6;` que ira deixa ele bem mais clarinho e vamos colocar um `cursor: not-allowed;` que e plaquinha de não permitido.
+
+<h1 align="center">
+    <img src="./img/img018.png" />
+</h1>
+
+Agora vamos colocar as variavel de cor dentro do `root`
+
+<h1 align="center">
+    <img src="./img/img019.png" />
+</h1>
+
