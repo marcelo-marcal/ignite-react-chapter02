@@ -236,3 +236,39 @@ Agora vamos colocar as variavel de cor dentro do `root`
     <img src="./img/img019.png" />
 </h1>
 
+### Fontes do Google Fonts
+
+Vamos configura uma fonte diferente na aplicação.
+E maioria das fontes que os Web design vão ultizar esta disponiveis site do google font:
+
+https://fonts.google.com/
+Mais vamos em:
+https://fonts.google.com/specimen/Poppins
+
+E vamos selecionar os tamanho que vamos usa na aplicação:
+400 regular
+600 semi-bold
+
+via link:
+
+E vamos colocar dentro do `index.html`, deixando o `preconnect` em cima, ficando assim:
+
+<h1 align="center">
+    <img src="./img/img020.png" />
+</h1>
+
+Agora no arquivo global do css, vamos defenir a fonte poppins, no corpo da aplicação, no imput, no textarea e no button:
+
+```
+body, input, textarea, button {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+  }
+  h1, h2, h3, h4, h5, h6, strong {
+    font-weight: 600;
+  } 
+```
+
+<h1 align="center">
+    <img src="./img/img021.png" />
+</h1>
