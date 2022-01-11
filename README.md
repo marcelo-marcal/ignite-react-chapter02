@@ -119,7 +119,7 @@ E ficando assim os vetores renomeados:
 
 E vamos anotar as cores do figma para passar no scc:
 
-### Instalando Styled Components
+### 1.4 Instalando Styled Components
 
 Vamos inicia instalando uma das bibliotecas que e Styled Components
 
@@ -174,7 +174,7 @@ E ao em vez de colocar `h1` vamos colocar um componete `title`
 
 Tendo a vantagem do css ficar proximo e não atralha os outros css de componetes.
 
-### Criando estilos globais
+### 1.5 Criando estilos globais
 
 Como usar Styled Components, para criar umas estilizações globais para a aplicação.
 Vamos começa remomvendo tudo que tem do Styled Components dentro do `App.tsx`.
@@ -236,7 +236,7 @@ Agora vamos colocar as variavel de cor dentro do `root`
     <img src="./img/img019.png" />
 </h1>
 
-### Fontes do Google Fonts
+### 1.6 Fontes do Google Fonts
 
 Vamos configura uma fonte diferente na aplicação.
 E maioria das fontes que os Web design vão ultizar esta disponiveis site do google font:
@@ -271,4 +271,115 @@ body, input, textarea, button {
 
 <h1 align="center">
     <img src="./img/img021.png" />
+</h1>
+
+### 2 Componentização
+
+### 2.1 Componente: Header
+
+Começa a vcriando o primeiro componete visial, iniciando com uma pasta chamada `components` e dentro uma pasta chamada `Header` e dentro um arquivo `index.tsx`.
+
+Vamos inicia para intendimento um função chamada Header `function Header(){}`
+Que retorna por exemplo um html. Como `<header>` e dentro o cabeçalho da aplicação.
+E vamos exportar tambem essa função dentro com `export`, ficando assim:
+
+<h1 align="center">
+    <img src="./img/img022.png" />
+</h1>
+
+Agora vamos para o arquivo `App.tsx` e vamos adicionar no lugar de `h1` o nosso componete `<Header />`.
+E no lugar da `div` vamos ultilizar uma Fragment `<> ... </>`
+
+<h1 align="center">
+    <img src="./img/img023.png" />
+</h1>
+
+E vamos rodar a aplicação com:
+`yarn start`
+
+Agora vamos começa a estilização desse Header:
+Vamos inicia criando a estrutura antes do css.
+Vamos inicia colocando a logo, e dentro do `<header>` colocamos um: 
+`<img src="" alt="" />`.
+Onde vamos preencher da seguinte forma. O texto alternativo como `dt money`:
+`<img src="" alt="dt money" />`.
+E vamos criar um `button` com o nome Nova Transação.
+`<button type="button">Nova Transação</button>`.
+
+E agora vamos importa o arquivo que e a `logo.svg`
+`import logoImg from '../../assets/logo.svg'`.
+
+E dentro do `<header>` em img e src={} vamos colocar chaves para incluir uma variavel javascript.
+
+<h1 align="center">
+    <img src="./img/img024.png" />
+</h1>
+
+Agora vamos colocar o css, e na pasta chamada `components` e dentro uma pasta chamada `Header` vamos criar um arquivo chamado `styles.ts`, e dentro ira todas as estilizações relacionadas com header.
+Começa importando:
+`import styled from 'styled-components';`
+
+
+Agora vamos criar o nosso primeiro componete estilizado que vai se chamar `Container` e ele vai ser uma tag do type `header` e dentro dela as estilizações.
+
+`export const Container = styled.header``; `
+
+Vamos colocar `background: var(--blue);`
+
+```
+export const Container = styled.header`
+  background: var(--blue);
+`;
+```
+<h1 align="center">
+    <img src="./img/img025.png" />
+</h1>
+
+Vamos salva e voltamos no header e no lugar de `<header>` vamos colocar `<Container>`
+
+<h1 align="center">
+    <img src="./img/img026.png" />
+</h1>
+
+Agora a nossa primeira estilização ja esta visilvel no Browser.
+
+<h1 align="center">
+    <img src="./img/img027.png" />
+</h1>
+
+E vamos adiciona mais um Container a esse header.
+
+E vamos na estilização e exportamos Content e podemos ultiliza uma `div`.
+`export const Content = styled.div``; `.
+
+<h1 align="center">
+    <img src="./img/img028.png" />
+</h1>
+
+E vamos colocar `max-width` para ter uma lagura maxima.
+
+E vai está sempre centralizado com `margin: 0 auto;`.
+
+Vamos adiciona `padding: 2rem 1rem 12rem;` onde 1rem sempre vai pegar o tamanha do font-size.
+
+Vamos colocar um `display: flex;`.
+Vamos colocar um `align-items: center;` para deixar nossa logo e o botão alinhados.
+Vamos colocar um `justify-content: space-between;` para que haja um espaço entre a logo e o botão.
+
+Agora vamos colocar uma estilização para o botão `button {}`;
+E dentro dele um `font-size: 1rem;`.
+Vamos dar um `color: #fff;`.
+Vamos dar um `background: var(--blue-light);`.
+Vamos dar um `border: 0;` para remover a borda que ja vem nele.
+Vamos dar um `padding: 0 2rem;` Espaçamento tanto de um lado quanto do outro.
+Vamos dar um `border-radius: 0.25rem;` que vai equivale a 4px no desktop.
+Vamos dar um `height: 3rem;`.
+
+Vamos dar uma transição `transition: filter 0.2s;`
+
+Vamos colocar um filtro dentro do `&:hover{}`.]
+Como `filter: brightness(0.9);` que vai escurecer o botão levemente.
+
+<h1 align="center">
+    <img src="./img/img029.png" />
 </h1>
