@@ -363,23 +363,129 @@ E vai está sempre centralizado com `margin: 0 auto;`.
 Vamos adiciona `padding: 2rem 1rem 12rem;` onde 1rem sempre vai pegar o tamanha do font-size.
 
 Vamos colocar um `display: flex;`.
+
 Vamos colocar um `align-items: center;` para deixar nossa logo e o botão alinhados.
+
 Vamos colocar um `justify-content: space-between;` para que haja um espaço entre a logo e o botão.
 
 Agora vamos colocar uma estilização para o botão `button {}`;
+
 E dentro dele um `font-size: 1rem;`.
+
 Vamos dar um `color: #fff;`.
+
 Vamos dar um `background: var(--blue-light);`.
+
 Vamos dar um `border: 0;` para remover a borda que ja vem nele.
+
 Vamos dar um `padding: 0 2rem;` Espaçamento tanto de um lado quanto do outro.
+
 Vamos dar um `border-radius: 0.25rem;` que vai equivale a 4px no desktop.
+
 Vamos dar um `height: 3rem;`.
 
 Vamos dar uma transição `transition: filter 0.2s;`
 
-Vamos colocar um filtro dentro do `&:hover{}`.]
+Vamos colocar um filtro dentro do `&:hover{}`.
+
 Como `filter: brightness(0.9);` que vai escurecer o botão levemente.
 
 <h1 align="center">
     <img src="./img/img029.png" />
+</h1>
+
+### 2.2 Componente: Summary
+
+Vamos criar um componete chamado Dashboard:
+Iniciamos criando uma pasta dentro de `components` com o nome `Dashboard` e dentro um arquivo com o nome: `index.tsx` e um `styles.ts`.
+
+Dentro de `index.tsx` vamos expostar a `function`.
+Que ira funcionar como uma pagina da aplicação, que tera um resulmo das entradas e saida.
+
+<h1 align="center">
+    <img src="./img/img030.png" />
+</h1>
+
+No `styles.ts` vamos estilizar.
+
+<h1 align="center">
+    <img src="./img/img031.png" />
+</h1>
+
+E vamos criar mais uma pasta com nome `Summary` e um arquivo chamado `index.tsx`.
+
+<h1 align="center">
+    <img src="./img/img032.png" />
+</h1>
+
+E no arquivo `styles.ts` mais adicionar as seguintes linhas:
+
+<h1 align="center">
+    <img src="./img/img033.png" />
+</h1>
+
+E agora no `App.tsx`, vamos colocar em baixo do `<Header/>` o `<Dashboard/>`
+
+<h1 align="center">
+    <img src="./img/img034.png" />
+</h1>
+
+E vamos rodar a aplicação com:
+`yarn start`
+
+Agora vamos começa criar a estrutura html das caixa de informações.
+src/components/Summary/index.tsx
+
+Vamos criar um Container no lugar do `<h1>Summary</h1>` 
+
+<h1 align="center">
+    <img src="./img/img035.png" />
+</h1>
+
+E agora vamos dentro do Container das estilizações no `styles.ts`.
+
+`display: grid;` Porque são tres itens do mesmo tamanho um do lado do outro.
+
+`grid-template-columns: repeat(3, 1fr);` Tres 3 colunas com 1 tamanho flexível cada uma delas.
+
+`gap: 2rem;` Que e o espaçamento entre cada um dos grid.
+
+`margin-top: -10rem;` Jogar o Summary, mais pra cima.
+
+Agora vamos para os itens, que foram colocados como `div {}`. 
+
+`background: var(--shape);` Para ficar com fundo branco.
+
+`color: var(--text-title);` Para mudar a cor do texto.
+
+Vamos pegar o cabeçalho que esta dentro `header {}`
+
+E nosso `strong {}` que e nosso texto
+
+`display: block;` Porque por padrão o strong vem com o display inline ai o margin-top não funciona.
+
+E vamos colocar uma classe na div total dentro do do `Summary` no arquivo `index.tsx`:
+Ficando assim: `<div className='highlight-background'>`.
+
+<h1 align="center">
+    <img src="./img/img036.png" />
+</h1>
+
+E vamos no `styles.ts` e falo que a div, onde esta o `&.highlight-background{}`
+
+```
+&.highlight-background {
+      background: var(--green);
+      color: #fff;
+    }
+  }
+```
+<h1 align="center">
+    <img src="./img/img037.png" />
+</h1>
+
+Ficando assim:
+
+<h1 align="center">
+    <img src="./img/img038.png" />
 </h1>
