@@ -512,3 +512,19 @@ Arquivo `styles.ts`.
 <h1 align="center">
     <img src="./img/img040.png" />
 </h1>
+
+Ficando assim:
+
+<h1 align="center">
+    <img src="./img/img041.png" />
+</h1>
+
+### 3.1 Criando front-end sem back-end
+
+JSON Server: Vai permiti que ao criarmos um arquivo `json` e com a estrutura de um objeto, cada chave desse objeto, ele vai converte em uma rota da nossa aplicação.
+Entretanto ele não tem as funcionalidade de execulta junto com a aplicação.
+
+MirageJS: Vamos nos ajudar a construir uma IPA fake, dentro do nosso Front-End.
+Ele tem bancos de dados integrados, posibilitado relacionamento, consegue prencher com dados fictício.
+https://miragejs.com/docs/getting-started/introduction/
+
