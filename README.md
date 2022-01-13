@@ -489,3 +489,26 @@ Ficando assim:
 <h1 align="center">
     <img src="./img/img038.png" />
 </h1>
+
+
+### 2.3 Componente: TransactionsTable
+
+Vamos cria dentro da pasta components uma outra pasta chamada de `TransactionsTable` e dentro um arquivo `index.tsx` e `styles.ts`.
+
+<h1 align="center">
+    <img src="./img/img039.png" />
+</h1>
+
+Arquivo `styles.ts`.
+
+`border-spacing: 0 0.5rem;` serve para despaçamento entre os intens.
+
+`border-radius: 0.25rem;` serve para aredondamento de borda.
+
+`&:first-child {};` Para a primeira parte fazer.
+
+`&.deposit {}` Quando for um deposito fazer.
+
+<h1 align="center">
+    <img src="./img/img040.png" />
+</h1>
