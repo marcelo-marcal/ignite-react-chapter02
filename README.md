@@ -528,3 +528,40 @@ MirageJS: Vamos nos ajudar a construir uma IPA fake, dentro do nosso Front-End.
 Ele tem bancos de dados integrados, posibilitado relacionamento, consegue prencher com dados fictício.
 https://miragejs.com/docs/getting-started/introduction/
 
+### 3.2 Configurando MirageJS
+
+Se eu quisesse carregar um transactions, eu teria um `useEffect(() => {}, [])` com um arrey de dependência e se ficar vazio ele ira executa apenas uma vez e toda variável que estive dentro ele vai executa de novo. Ai poderia também ser feito um `fetch('')` para nossa rota e dentro o nosso endereço da própria aplicação, ficando assim: `fetch('http://localhost:3000/api/transactions')` e apos isso vamos pegar a resposta dessa nossa requisição com um `.the(response => response.json( ))` convertendo a resposta para json.
+E quando a resposta estiver convertida para json, vamos dar um console.log( ) nos dados para ver oque esta sendo retornado, assim: `.then(data => console.log(data))`
+
+E se rodar a API e foir especionar em console tera um error:
+
+<h1 align="center">
+    <img src="./img/img042.png" />
+</h1>
+
+E se formos em Network e der um F5 e formos na requisição que ele fez a transactions e em Preview
+
+<h1 align="center">
+    <img src="./img/img043.png" />
+</h1>
+You need to enable JavaScript to run this app.
+Você precisa habilitar o JavaScript para executar este aplicativo
+
+Ou seja eu não tenho nem um arrey de transição sendo retornado:
+
+Vamos inicia instalando o MirageJS:
+`yarn add miragejs`
+
+E dentro do arquivo `index.tsx` que esta dentro da pasta `src`
+
+`import { createServer } from 'miragejs'`
+
+E dentro chamar a função createServer `creatServer({})` e definir `routes()` que se refere as rotas que teremos na API.
+Com `this.namespace = 'api'` que todas as chamadas que eu fizer serão aparti desse endereço `api`.
+E para cada uma das rotas eu digo: `this.get('/transactions', () => {})`.
+Que quando houver uma requisição do tipo get, que e uma requisição de busca, para rota transactions, e vou retorna alguns dados ficticios.
+
+<h1 align="center">
+    <img src="./img/img044.png" />
+</h1>
+
