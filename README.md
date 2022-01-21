@@ -565,3 +565,31 @@ Que quando houver uma requisição do tipo get, que e uma requisição de busca,
     <img src="./img/img044.png" />
 </h1>
 
+### 3.3 Configurando cliente do Axios
+
+Configura um cliente HTTP, para gente não precisa fazer as requisições utilizado o `fatch` que e a API nativa do http do proprio Browser epode ser utilizado no node.
+Pois o problema do `fatch` e que precisa ficar transformando em json o nosso resultado todas as vez no final a operação.
+
+Ja com Axios, ele pode intercepta requisições e resposta para nossa API.
+
+Vamos inicia instalando o MirageJS:
+`yarn add axios`
+
+Vamos criar uma pasta dentro de src para colocar o Axios dentro.
+Pasta chamada `services` que tem mais o intuito de ser serviços de dados, e dentro um arquivo `api.ts`.
+
+Vamos começa importando o axios `import axios from 'axios';`
+Criar uma constante chamada api `const api = axios.create({})` e dentro dele uma instacia, para seta algumas informações que vão ser padrão para todas as requisições que serão feitas.
+E dentro do src/components/TransactionsTable/index.tsx vamos recorta o indereço `http://localhost:3000/api` para dentro `api.ts`
+
+<h1 align="center">
+    <img src="./img/img045.png" />
+</h1>
+
+E dentro do src/components/TransactionsTable/index.tsx
+Vamos trocar o `fetch` por `api` 
+Transforma o `data` em `response`
+
+<h1 align="center">
+    <img src="./img/img046.png" />
+</h1>
