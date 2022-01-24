@@ -2,14 +2,15 @@
     <img src="./img/img000.png" />
 </h1>
 
-# ignite-react-chapter02
+#### ignite-react-chapter02
+
 ## Chapter II 
 
 ## Trilha ReactJS 
 
 ## Primeira Aplicação Web com ReactJS
 
-### 1 Estrutura da aplicação
+## 1 Estrutura da aplicação
 
 ### 1.1 Introdução do módulo
 
@@ -273,7 +274,7 @@ body, input, textarea, button {
     <img src="./img/img021.png" />
 </h1>
 
-### 2 Componentização
+## 2 Componentização.
 
 ### 2.1 Componente: Header
 
@@ -519,6 +520,8 @@ Ficando assim:
     <img src="./img/img041.png" />
 </h1>
 
+## 3 Consumindo API.
+
 ### 3.1 Criando front-end sem back-end
 
 JSON Server: Vai permiti que ao criarmos um arquivo `json` e com a estrutura de um objeto, cada chave desse objeto, ele vai converte em uma rota da nossa aplicação.
@@ -592,4 +595,43 @@ Transforma o `data` em `response`
 
 <h1 align="center">
     <img src="./img/img046.png" />
+</h1>
+
+## 4 Modal & Forms.
+
+### 4.1 Configurando modal de criação
+
+Configura o modal para cadastra uma nova transação usando uma biblioteca react-modal, pois ela ja tras algumas funcionalidades prontas, como por exemplo dar um esc e fechar o modal.
+
+Vamos inicia instalando o react-modal:
+`yarn add react-modal`
+
+Vamos instalando o @types/react-modal como -D:
+`yarn add @types/react-modal -D`
+
+Documentação:
+https://github.com/reactjs/react-modal
+
+Inicia criando o modal dentro do Header, pois e onde esta o botao de Nova Transação.
+
+Inicia criando um estado: `const [isNewTransactionModalOpen, setIsNewTransactionModalOpen] = useState(false);` apos isso pode se criar duas funções que sempre que essa função precisa de uma ação do usuario eu vou iniciar ela com `handle`.
+
+
+<h1 align="center">
+    <img src="./img/img047.png" />
+</h1>
+
+Repasse de propriedade para os componetes.
+E vamos migra todo o modal para dentro do `App.tsx`
+
+E vamos pegar todos os estados e tambem mudar para dentro do `App.tsx`.
+
+<h1 align="center">
+    <img src="./img/img048.png" />
+</h1>
+
+E arrumar o Header.
+
+<h1 align="center">
+    <img src="./img/img049.png" />
 </h1>
