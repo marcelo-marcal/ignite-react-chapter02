@@ -635,3 +635,48 @@ E arrumar o Header.
 <h1 align="center">
     <img src="./img/img049.png" />
 </h1>
+
+### 4.2 Componente: NewTransactionModal
+
+Vamos trabalhar no conteudo do modal
+Para isso vamos criar um componete para o modal separado.
+E dentro de src/components: vamos criar uma pasta `NewTransactionModal` e dentro um arquivo `index.tsx` e tambem o `styles.ts`.
+
+E dentro `index.tsx` vamos inicia exportando uma função `export function NewTransactionModal() {}`, e dentro um ela ira retorna o conteudo que tem dentro do App.tsx.
+
+Agora vamos definir uma interface que terão as propriedade que ela ira receber `interface NewTransactionModalProps {}`.
+
+As propriedade: 
+
+`isOpen: boolean;` que vai receber se o modal esta aberto ou não.
+
+`onRequestClose: () => void;` que e uma função que não retorna nada.
+
+A baixo vou pegar esses propriedades atraves de desestruturação;
+
+`export function NewTransactionModal({isOpen, onRequestClose}: NewTransactionModalProps) {`
+
+E vamos passa elas dentro das propriedades que esta dentro do modal:
+
+<h1 align="center">
+    <img src="./img/img050.png" />
+</h1>
+
+E no `App.tsx` vou adicionar `<NewTransactionModal/>` e passar para ele as duas propriedades e o estado de cima.
+
+`isOpen={isNewTransactionModalOpen}`
+
+`onRequestClose={handleCloseNewTransactionModal}`
+
+<h1 align="center">
+    <img src="./img/img051.png" />
+</h1>
+
+E como o `styles.ts` não pode ficar vazio, mais so preencher assim:
+
+<h1 align="center">
+    <img src="./img/img052.png" />
+</h1>
+
+E vamos rodar a aplicação com:
+`yarn start`
