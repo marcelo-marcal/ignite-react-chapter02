@@ -680,3 +680,50 @@ E como o `styles.ts` não pode ficar vazio, mais so preencher assim:
 
 E vamos rodar a aplicação com:
 `yarn start`
+
+### 4.3 Estrutura do formulário
+
+Configura a estrutura do HTML do formulario
+
+Começa criando os imputs:
+Desntro da pasta `NewTransactionModal` no arquivo `index.tsx`. vamos criar um conteiner `<Container></Container>` formulario dentro da Modal por volta de tudo .
+
+E transforma um <Container> em um formulario, dentro do arquivo altera `styled.div``;` para `styled.form``;`.
+
+No arquivo `index.tsx`, em baixo `h2` vamos colocar os input `<input placeholder='Titulo'/>`
+
+<h1 align="center">
+    <img src="./img/img053.png" />
+</h1>
+
+E vamos rodar a aplicação com:
+`yarn start`
+
+E para estilizar o modal vamos passar dentro do Modal essas duas classes:
+`overlayClassName="react-modal-overlay"`.
+`className="react-modal-content"`.
+
+<h1 align="center">
+    <img src="./img/img054.png" />
+</h1>
+
+E vou fazer uma estilização global em `global.ts`.
+
+Vou adicinar as duas classe e adiciona `css` em ambos:
+
+`.react-modal-overlay {}`
+
+`position: fixed;` ele sempre vai ficar em cima da tela.
+
+`.react-modal-content {}`
+
+<h1 align="center">
+    <img src="./img/img055.png" />
+</h1>
+
+Fica assim a estilização:
+
+<h1 align="center">
+    <img src="./img/img056.png" />
+</h1>
+
