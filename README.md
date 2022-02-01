@@ -726,4 +726,3 @@ Fica assim a estilização:
 <h1 align="center">
     <img src="./img/img056.png" />
 </h1>
-
