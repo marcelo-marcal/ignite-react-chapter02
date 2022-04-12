@@ -843,3 +843,97 @@ E fazer a stilização do `react-modal-close`
 <h1 align="center">
     <img src="./img/img061.png" />
 </h1>
+
+
+### 4.5 Criando Botôes de Tipo.
+
+Criação do botão de entrada e saída.
+Dentro da pasta `NewTransactionModal` no arquivo `index.tsx` vamos criar entre o Valor e Categoria, criando um novo Container por volta desses dois intes entrada e saída com o nome `<TransactionTypeContainer>`
+
+Vamos importa ele em styles:
+
+`import { Container, TransactionTypeContainer } from './styles';`
+
+Vamos importa a imagem:
+
+```
+import incomeImg from '../../assets/income.svg';
+import outcomeImg from '../../assets/outcome.svg';
+```
+
+Sendo que ele vai ter uma imagem e um titulo
+
+```
+<TransactionTypeContainer>
+    <button
+        type="button"
+    >
+        <img src={incomeImg} alt="Entrada"/>
+        <span>Entrada</span>
+    </button>
+
+    <button
+        type="button"
+    >
+        <img src={outcomeImg} alt="Saída"/>
+        <span>Saída</span>
+    </button>
+</TransactionTypeContainer>
+```
+
+e nos `styles.ts` exporta em baixo:
+
+```
+export const TransactionTypeContainer = styled.div`
+    margin: 1rem 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+
+  button {
+    height: 4rem;
+    border: 1px solid #d7d7d7;
+    border-radius: 0.25rem;
+
+    background: transparent;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: border-color 0.2s;
+
+    &:hover {
+        border-color: #aaa;
+    }
+
+    img {
+      width: 20px;
+      height: 20px;
+    }
+
+    span {
+      display: inline-block;
+      margin-left: 1rem;
+      font-size: 1rem;
+      color: var(--text-title);
+    }
+  }
+`;
+```
+
+Com relação ao hover, pode ser dado outra estilização, instalando um pacote `polished`.
+
+`yarn add polished`.
+
+importando:
+
+`import { darken } from 'polished';`
+
+E agora dentro do `&:hover` podemos mudar o `border-color: #aaa;`.
+
+`border-color: ${darken(0.1, '#d7d7d7')};`
+
+<h1 align="center">
+    <img src="./img/img062.png" />
+</h1>
