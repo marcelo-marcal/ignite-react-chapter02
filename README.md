@@ -727,6 +727,7 @@ Fica assim a estilização:
     <img src="./img/img056.png" />
 </h1>
 
+  
 ### 4.4 Estilizando modal
 
 src/components/NewTransactionModal/
@@ -755,7 +756,7 @@ E todo input que tiver antes um um input antes dele vai receber um espaço:
 ```
 & + input {
       margin-top: 1rem;
-    }
+}
 ```
 
 <h1 align="center">
