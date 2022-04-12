@@ -726,3 +726,121 @@ Fica assim a estilização:
 <h1 align="center">
     <img src="./img/img056.png" />
 </h1>
+
+  
+### 4.4 Estilizando modal
+
+src/components/NewTransactionModal/
+Dentro do `styles.ts`.
+
+<h1 align="center">
+    <img src="./img/img057.png" />
+</h1>
+
+Já temos o seguinte resultado do input:
+
+<h1 align="center">
+    <img src="./img/img058.png" />
+</h1>
+
+Agora vamos trocar a cor de fundo do placeholder:
+
+```
+&::placeholder {
+    color: var(--text-body);
+}
+```
+
+E todo input que tiver antes um um input antes dele vai receber um espaço:
+
+```
+& + input {
+      margin-top: 1rem;
+}
+```
+
+<h1 align="center">
+    <img src="./img/img059.png" />
+</h1>
+
+E estilizar o button:
+
+```
+button[type="submit"] {
+      width: 100%;
+      padding: 0 1.5rem;
+      height: 4rem;
+      background: var(--green);
+      color: #FFF;
+      border-radius: 0.25rem;
+      border: 0;
+      font-size: 1rem;
+      margin-top: 1.5rem;
+      font-weight: 600;
+
+      transition: filter 0.2s;
+
+      &:hover {
+        filter: brightness(0.9);
+      }
+    }
+```
+
+O transition, tem a finalidade de aminizar a mudança da cor:
+
+```
+transition: filter 0.2s;
+```
+
+Para que server o hover: Quando se passar o mouse por cima do botão ele ira diminuir a luminosidade.
+
+```
+&:hover {
+        filter: brightness(0.9);
+      }
+```
+
+<h1 align="center">
+    <img src="./img/img060.png" />
+</h1>
+
+E para deixa o Modal praticamente pronto vamos deixa o botão de fechar o modal pronto.
+E vamos usar um uma imagem dentro do `assets` chamada `close.svg`.
+Agora vamos importa dentro aquivo `index.tsx` essa imagem.
+
+```
+import closeImg from '../../assets/close.svg';
+```
+
+E vamos colocar ele dentro do Modal, antes do `<Container>`:
+
+E quando o usuario usar `onClick` dele vai se execulta função `onRequestClose` que e função para fechar o modal. E adicionar uma classe para ficar um pouco mais facil
+
+```
+<button type="button" onClick={onRequestClose} className="react-modal-close">
+    <img src={closeImg} alt="Fechar modal"/>
+</button>
+```
+
+Agora dentro de `styles` e `global.ts`.
+E fazer a stilização do `react-modal-close`
+
+```
+.react-modal-close {
+    position: absolute;
+    right: 1.5rem;
+    top: 1.5rem;
+    border: 0;
+    background: transparent;
+
+    transition: filter 0.2s;
+
+    &:hover {
+      filter: brightness(0.8);
+    }
+  }
+```
+
+<h1 align="center">
+    <img src="./img/img061.png" />
+</h1>
