@@ -1076,3 +1076,49 @@ E fazer um lançamneto.
 <h1 align="center">
     <img src="./img/img063.png" />
 </h1>
+
+### 4.9 Inserindo Transação na API.
+
+Agora vamos pega os dados da Transaction, e salvar esses dados.
+Salvado em uma variavel `data` e importa da nossa `api` fazendo uma encessão.
+Usando o metodo `post` e a rota `api.post('/transactions', data)`.
+
+Agora criar dentro do arquivo `index.tsx` que fica dentro da pasta `src`.
+
+```
+this.post('/transactions', (scheme, request) => {
+    const data = JSON.parse(request.requestBody)
+
+    return data
+})
+```
+
+Vamos do `DevTools` na aba `Console` fazer uma nova transação.
+
+<h1 align="center">
+    <img src="./img/img064.png" />
+</h1>
+
+Agora so precisa ligar as duas rotas:
+
+```
+models: {
+    transition: Model,
+},
+```
+
+E em baixo na rota `post` passar um return com `scheme`.
+
+`return scheme.create('transition', data)`.
+
+E agora na listagem da rota `get`.
+
+```
+this.get('/transactions', () => {
+    return this.schema.all('transition');
+})
+```
+
+### 4.10 Listando Transações e Seeds.
+
+Agora a `TransactionsTable` exibir das transition que estão vindo da nossa API, e começa a visualizar a plicação.
