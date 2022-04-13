@@ -1024,3 +1024,55 @@ background: ${(props) => props.isActive
 <h1 align="center">
     <img src="./img/img062.png" />
 </h1>
+
+### 4.8 Salvando Dados do Front.
+
+Agora vamos salva os estados do input dentro do componete:
+Criando uma função chamada: 
+
+```
+function handleCreateNewTransaction(event: FormEvent) {
+    event.preventDefault();
+  }
+```
+
+E toda função que começa com `handle` vem atravez de uma ação do usario.
+E vou dar ao meu `<Container>` um `onSubmit`:
+`<Container onSubmit={handleCreateNewTransaction}>`.
+
+Agora vamos anotar os dados de dentro de input da aplicação:
+
+Onde vai ser criado um valor no estado do componente para cada input que tiver.
+
+Onde os inputs de text vão inicia com o default vazio:
+`const [title, setTitle] = useState('');`. 
+e os numericos também 
+`const [value, setValue] = useState(0);`.
+e
+`const [category, setCategory] = useState('');`.
+
+E cada um dos inputs vai se adicionar a propriedade: `value={title}` apontando para a propriedade do estado.
+E mais a função `onChange=` e uma função que execulta cada vez que um texto for digitado dentro do input.
+
+```
+value={title}
+onChange={event => setTitle(event.target.value)}
+```
+
+Agora para ver a função, vamos usar um console.log():
+
+```
+console.log({
+      title,
+      value,
+      category,
+      type,
+    })
+```
+
+inspecionar o develop too:
+E fazer um lançamneto.
+
+<h1 align="center">
+    <img src="./img/img063.png" />
+</h1>
