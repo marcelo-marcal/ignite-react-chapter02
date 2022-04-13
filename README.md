@@ -726,7 +726,6 @@ Fica assim a estilização:
 <h1 align="center">
     <img src="./img/img056.png" />
 </h1>
-
   
 ### 4.4 Estilizando modal
 
@@ -843,11 +842,7 @@ E fazer a stilização do `react-modal-close`
 
 <h1 align="center">
     <img src="./img/img061.png" />
-<<<<<<< HEAD
 </h1>
-=======
-</h1>
-
 
 ### 4.5 Criando Botôes de Tipo.
 
@@ -938,7 +933,94 @@ E agora dentro do `&:hover` podemos mudar o `border-color: #aaa;`.
 
 `border-color: ${darken(0.1, '#d7d7d7')};`
 
+
+### 4.6 Funcionamento dos Botôes.
+
+Sera criado uma funça para nossa estilização do button:
+Onde vai se passa todo para dentro desse novo componente.
+No `styled.ts`
+
+```
+export const RadioBox = styled.button<RadioBoxProps>`
+  height: 4rem;
+  border: 1px solid #d7d7d7;
+  border-radius: 0.25rem;
+
+  background: ${(props) => props.isActive ? '#ccc' : 'transparent'};
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: border-color 0.2s;
+
+  &:hover {
+    border-color: ${darken(0.1, '#d7d7d7')};
+  }
+
+  img {
+    width: 20px;
+    height: 20px;
+  }
+
+  span {
+    display: inline-block;
+    margin-left: 1rem;
+    font-size: 1rem;
+    color: var(--text-title);
+  }
+`;
+```
+
+E mudando o `index.tsx`.
+
+```
+<TransactionTypeContainer>
+    <RadioBox
+        type="button"            
+        onClick={() => {setType('deposit');}}
+        isActive={type === 'deposit'}
+    >
+        <img src={incomeImg} alt="Entrada"/>
+        <span>Entrada</span>
+        </RadioBox>
+
+    <RadioBox
+        type="button"
+        onClick={() => {setType('withdraw');}}
+        isActive={type === 'withdraw'}
+    >
+        <img src={outcomeImg} alt="Saída"/>
+        <span>Saída</span>
+    </RadioBox>
+</TransactionTypeContainer>
+```
+
+### 4.7 Cores dos Botôes.
+
+Onde vai ser passado uma propriedade para esse elemento:
+
+`activeColor="green"`.
+
+E nas Props do `RadioBoxProps` falar que ele recebe uma propriedade `activeColor: 'green' | 'red'`.
+
+E criar uma variavel que faz um map das colos.
+
+```
+const colors = {
+  green: '#33cc95',
+  red: '#e52e4d',
+};
+```
+E onde foi definido a cor de fundo, vai se fazer uma verificação:
+
+```
+background: ${(props) => props.isActive
+    ? transparentize(0.9, colors[props.activeColor])
+    : 'transparent'
+  };
+```
+
 <h1 align="center">
     <img src="./img/img062.png" />
 </h1>
->>>>>>> develop
