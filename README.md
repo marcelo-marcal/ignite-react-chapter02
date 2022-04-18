@@ -1225,3 +1225,40 @@ E para a data vamos fazer algo muito parecido:
 <h1 align="center">
     <img src="./img/img066.png" />
 </h1>
+
+## 5 Contextos Hooks.
+
+### 5.1 A Context API no React.
+
+Iniciar criando dentro da pasta src um arquivo chamado: `TransactionsContext.ts` a principio na raiz e depois sera movido de lugar.
+
+```
+import { createContext } from 'react'
+
+export const TransactionsContext = createContext([]);
+```
+
+E colocando um provider por fora de toda aplicação:
+`<TransactionsContext.Provider value={[]}>`. fica do assim:
+
+```
+return (
+    <TransactionsContext.Provider value={[]}>
+      <Header onOpenNewTransactionModal={handleOpenNewTransactionModal} />
+
+      <Dashboard />
+
+      <NewTransactionModal
+        isOpen={isNewTransactionModalOpen}
+        onRequestClose={handleCloseNewTransactionModal}
+      />
+      
+      <GlobalStyle />
+    </TransactionsContext.Provider>
+  );
+```
+
+Agora no componete `Summary`, para poder obter os valores.
+
+`const data = useContext(TransactionsContext);`.
+
