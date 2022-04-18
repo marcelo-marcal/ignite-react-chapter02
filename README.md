@@ -1277,3 +1277,22 @@ const [transactions, setTransactions] = useState<Transaction[]>([]);
   }, []);
 ```
 
+### 5.3 Movendo Criação para Context.
+
+Calcular o resulmo de entradas e Saidas
+E aparece na tela as transação assim que forem feitas na Modal
+
+Vamos retira de `NewTransactionModal`:
+
+```
+const data = {
+    title,
+    value,
+    category,
+    type,
+};
+api.post('/transactions', data)
+```
+E leva para `TransactionsContext.tsx`. criando uma função:
+
+
