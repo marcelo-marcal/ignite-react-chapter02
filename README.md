@@ -1179,3 +1179,49 @@ useEffect(() => {
 }, []);
 ```
 
+### 4.11 Formatando Valores.
+
+Vamos formata os valores de cada tabela:
+
+Formatando o amount:
+```
+<tbody>
+    {transactions.map(transaction => (
+        <tr key={transaction.id}>
+        <td>{transaction.title}</td>
+        <td className={transaction.type}>
+            {new Intl.NumberFormat('pt-BR', {
+                style: 'currency',
+                currency: 'BRL'
+             }).format(transaction.amount)}
+        </td>
+        <td>{transaction.category}</td>
+        <td>{transaction.createdAt}</td>
+        </tr>
+    ))}                  
+</tbody>
+```
+
+```
+{new Intl.NumberFormat('pt-BR', {
+    style: 'currency',
+    currency: 'BRL'
+}).format(transaction.amount)}
+```
+<h1 align="center">
+    <img src="./img/img065.png" />
+</h1>
+
+E para a data vamos fazer algo muito parecido:
+
+```
+<td>
+    {new Intl.DateTimeFormat('pt-BR').format(
+        new Date(transaction.createdAt)
+    )}
+</td>
+```
+
+<h1 align="center">
+    <img src="./img/img066.png" />
+</h1>
