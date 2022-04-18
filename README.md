@@ -1262,3 +1262,18 @@ Agora no componete `Summary`, para poder obter os valores.
 
 `const data = useContext(TransactionsContext);`.
 
+### 5.2 Carregando Transações.
+
+Agora vamos carregar essa informações dentro do contesto.
+
+no aquivo `TransactionsContext.tsx` e mover o codigo a baixo para dentro desse arquivo:
+
+```
+const [transactions, setTransactions] = useState<Transaction[]>([]);
+
+  useEffect(() => {
+    api.get('transactions')
+      .then(response => setTransactions(response.data.transactions))
+  }, []);
+```
+
