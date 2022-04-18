@@ -1103,22 +1103,79 @@ Agora so precisa ligar as duas rotas:
 
 ```
 models: {
-    transition: Model,
+    transaction: Model,
 },
 ```
 
 E em baixo na rota `post` passar um return com `scheme`.
 
-`return scheme.create('transition', data)`.
+`return scheme.create('transaction', data)`.
 
 E agora na listagem da rota `get`.
 
 ```
 this.get('/transactions', () => {
-    return this.schema.all('transition');
+    return this.schema.all('transaction');
 })
 ```
 
 ### 4.10 Listando Transações e Seeds.
 
-Agora a `TransactionsTable` exibir das transition que estão vindo da nossa API, e começa a visualizar a plicação.
+Agora a `TransactionsTable` exibir das transition que estão vindo da nossa API, e começa a visualizar a plicação. E os dados estão estaticos.
+E agora vamos deixa dados pre cadastrado pos o banco esta retornando vazio.
+E agora para que o nosso banco de dados já inice com alguns dados para a interface ficar mais amigavel.
+Dentro da pasta `components` no arquivo `index.tsx` vamos fazer a seguinte alteração.
+
+Começa chamndo uma função `seeds()`.
+
+```
+seeds(server) {
+    server.db.loadData({
+      transactions: [
+        {
+          id: 1,
+          title: 'Freelancer de Website',
+          type: 'deposit',
+          category: 'Dev',
+          amount: 6000,
+          createdAt: new Date('2022-02-12 09:00:00'),
+        },
+        {
+          id: 2,
+          title: 'Aluguel',
+          type: 'withdraw',
+          category: 'Casa',
+          amount: 1100,
+          createdAt: new Date('2022-02-14 11:00:00'),
+        },
+      ],
+    })
+  },
+```
+
+E para mostra em tela, precisa criar um estado.
+`const [transactions, setTransactions] = useState<Transaction[]>([]);`.
+
+```
+<tbody>
+    {transactions.map(transaction => (
+        <tr key={transaction.id}>
+            <td>{transaction.title}</td>
+            <td className={transaction.type}>{transaction.amount}</td>
+            <td>{transaction.category}</td>
+            <td>{transaction.createdAt}</td>
+        </tr>
+    ))}                  
+</tbody>
+```
+
+Onde a key e `<tr key={transaction.id}>` e qual a informação unica para cada transação.
+
+E fazer uma alteração dentro do useEffect:
+```
+useEffect(() => {
+    api.get('transactions')
+      .then(response => setTransactions(response.data.transactions))
+}, []);
+```
+
