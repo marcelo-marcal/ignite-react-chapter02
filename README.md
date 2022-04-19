@@ -1295,4 +1295,86 @@ api.post('/transactions', data)
 ```
 E leva para `TransactionsContext.tsx`. criando uma função:
 
+### 5.4 Finalizando Inserção.
 
+Agora apois realizar uma tranção, o modal precisas ser fechado e o lançamento precisa aparecer na tela.
+
+Primeira alteração e em `NewTransactionModal` no arquivo `index.tsx`.
+Para fechar o modal:
+
+`onRequestClose();`
+
+E reseta o valor da Modal. 
+
+`setTitle('');`
+
+Sendo que eu preciso aguarda `await` que minha criação da `createTransaction` aconteça.
+
+E dentro do arquivo `TransactionsContext.tsx`, vamos transforma a função em assíncrona:
+
+```
+async function createTransaction(transaction: TransactionInput) {    
+    await api.post('/transactions', transaction)
+}
+```
+E toda função assíncrona recebe uma Promise<>
+
+```
+interface TransactionsContextData {
+  transactions: Transaction[];
+  createTransaction: (transaction: TransactionInput) => Promise<void>;
+}
+```
+
+Ficando o codigo assim:
+```
+async function handleCreateNewTransaction(event: FormEvent) {
+    event.preventDefault();
+
+    await createTransaction({
+      title,
+      amount,
+      category,
+      type,
+    })
+
+    setTitle('');    
+    setAmount(0);    
+    setCategory('');    
+    setType('deposit');
+
+    onRequestClose();
+  }
+```
+
+Agora precisamos que o lançamento fique na tela.
+
+E no aquivo `TransactionsContext.tsx` vamos pega a resposta de inserção.
+
+```
+async function createTransaction(transactionInput: TransactionInput) {    
+    const response = await api.post('/transactions', {
+      ...transactionInput,
+      createdAt: new Date(),
+    })
+    const { transaction } = response.data;
+```
+
+E colocar essa tranção dentro do estado de tranções:
+```
+export function TransactionsProvider({children}: TransactionsProviderProps) {
+  const [transactions, setTransactions] = useState<Transaction[]>([]);
+```
+
+E sempre que eu quero adicionar uma nova informção em um vetor no estado do react, eu sempre copio todas a informações `...transactions` e adiciono a nova informção no final.
+
+```
+setTransactions([
+    ...transactions,
+    transaction,
+]);
+```
+
+<h1 align="center">
+    <img src="./img/img067.png" />
+</h1>
