@@ -1378,3 +1378,33 @@ setTransactions([
 <h1 align="center">
     <img src="./img/img067.png" />
 </h1>
+
+### 5.5 Calculando Resumo.
+
+Dentro do `Summary`, vamos colocar o seguinte codigo:
+Existe duas forma de fazer:
+```
+const totalDeposits = transactions.reduce((acc, transaction) => {
+  if (transaction.type === 'deposit') {
+    return acc + transaction.amount;
+  }
+  return acc;
+}, 0);
+```
+Mais usar essa a baixo:
+```
+const summary = transactions.reduce((acc, transaction) => {
+    if (transaction.type === 'deposit') {
+      acc.deposits += transaction.amount;
+      acc.total += transaction.amount;
+    } else {
+      acc.withdraw += transaction.amount;
+      acc.total -= transaction.amount;
+    }
+    return acc;
+  }, {
+    deposits: 0,
+    withdraw: 0,
+    total: 0,
+})
+```
