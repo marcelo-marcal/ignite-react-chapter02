@@ -1408,3 +1408,53 @@ const summary = transactions.reduce((acc, transaction) => {
     total: 0,
 })
 ```
+E vamos formata os valores de cada com o codigo abaixo e replicar eles nos outros:
+
+```
+<div>
+    <header>
+        <p>Entradas</p>
+        <img src={incomeImg} alt="Entradas" />
+    </header>
+    <strong>
+        {new Intl.NumberFormat('pt-BR', {
+           style: 'currency',
+           currency: 'BRL'
+        }).format(summary.deposits)}
+    </strong>
+ </div>
+```
+
+### 5.5 Criando Hook.
+
+Porque? 
+Para reduzir a importação so pra uma
+Vamos criar uma pasta chamada `hooks` dentro do `src`.
+
+E vamos renomear o `TransactionsContext.tsx` para `useTransactions.tsx`
+E mover ele para dentro da pasta hooks.
+
+E dentro dele vamos exporta uma função:
+
+```
+export function useTransactions() {
+  const context = useContext(TransactionsContext);
+
+  return context;
+}
+```
+Agora não precisa mais export o `TransactionsContext`.
+podendo ficar assim:
+
+```
+const TransactionsContext = createContext<TransactionsContextData>(
+  {} as TransactionsContextData
+);
+```
+
+Agora dentro dos componetes, em `NewTransactionModal` vamos retirar:
+
+`import { TransactionsContext } from '../../TransactionsContext';`
+
+E arrumar o codigo.
+
